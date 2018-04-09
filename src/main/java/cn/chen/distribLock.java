@@ -36,7 +36,7 @@ public class distribLock{
             }
             while (true) {
                 Object rs = redis.eval(lockScript, 1, lockName,object.toString(), expire + "");
-                if(rs==1L) break;
+                if((Long)rs==1) break;
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
